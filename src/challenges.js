@@ -13,13 +13,36 @@ const repeatedWords = [
   "matter"
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordArr, word) {
+
+  let count = 0;
+  for(let i = 0; i < wordArr.length; i++){
+    if(wordArr[i] === word){
+      count++;
+    }
+  }
+
+  return count;
+}
 
 
 
 
 // Iteration 2 | Number Sequence
-function createSequence() {}
+function createSequence(n) {
+
+  const numArr = [];
+
+  if(n === 0){
+    return numArr;
+  }
+
+  for(let i = 0; i <= n; i++){
+    numArr.push(i);
+  }
+
+  return numArr;
+}
 
 
 
@@ -27,7 +50,14 @@ function createSequence() {}
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
 
-function multiplyBy() {}
+function multiplyBy(numArr,num) {
+
+    let result = [];
+    numArr.forEach(element => {
+      result.push(element*num);
+    });
+    return result;
+}
 
 
 
