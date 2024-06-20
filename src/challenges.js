@@ -113,7 +113,7 @@ console.log(uniquifyArray(duplicateWords))
 
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
-const matrix = [
+const matrix1 = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
@@ -136,28 +136,42 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(arr) {
-let max = 0
-let product = 0
-  for (let i =0;i<arr[0];i++){
-    console.log()
-    for (let j =0;j<arr[i];j++){
-      product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3]
-      if(max <product){
-        max = product
+function greatestProduct(matrix){
+  
+  let max1 = 0;
+  let product1 = 0;
+
+  let max2 = 0;
+  let product2 = 0;
+  
+  for(let i = 0; i < matrix.length; i++){
+    
+    for(let j = 0; j < matrix.length; j++){
+      product1 = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+      
+      if(product1 > max1){
+        max1 = product1;
       }
-    } 
-  } 
-  return max
+    }
+  }
+  
+
+
+  for(let i = 0; i < matrix.length-3; i++){
+    
+    for(let j = 0; j < matrix.length; j++){
+      product2 = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+      
+      if(product2 > max2){
+        max2 = product2;
+      }
+    }
+  }
+  
+  if(max1 >= max2){
+    return max1;
+  } else if(max2 > max1){
+    return max2;
+  }
 }
-console.log(greatestProduct(matrix))
-
-//checkear horizontal: array1[i] array1[i+1] array1[i+2] array1[i+3]
-//checkear vertical : array1[i] array2[i] array3[i] array4[i]
-
-//el max más grande primero horizontal y  luego vertical
-
-//checkear =>>>>> max = array1[i] * array1[i+1] * array1[i+2] * array1[i+3]
-
-//
 
