@@ -66,8 +66,20 @@ function multiplyBy(numArr,num) {
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut(original1,toRemove1) {
+if(original1.length === 0){return null}
+  const newArr = []
+  for (let i = 0; i < original1.length; i++ ){
+   
+    if(!toRemove1.includes(original1[i])){
+      newArr.push(original1[i])
+    }
+   
+  }
+  return newArr
+}
 
+console.log(filterOut(original,toRemove))
 
 
 
@@ -86,9 +98,18 @@ const duplicateWords = [
   "bring"
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(wordArr){
+  const newArr = []
+   if(wordArr.length === 0){return null}
+  for (let i = 0; i < wordArr.length; i++ ){
+    if(!newArr.includes(wordArr[i])){
+      newArr.push(wordArr[i])
+    } 
+  }
+  return newArr
+ 
+}
+console.log(uniquifyArray(duplicateWords))
 
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
@@ -115,4 +136,28 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+let max = 0
+let product = 0
+  for (let i =0;i<arr[0];i++){
+    console.log()
+    for (let j =0;j<arr[i];j++){
+      product = arr[i][j]*arr[i][j+1]*arr[i][j+2]*arr[i][j+3]
+      if(max <product){
+        max = product
+      }
+    } 
+  } 
+  return max
+}
+console.log(greatestProduct(matrix))
+
+//checkear horizontal: array1[i] array1[i+1] array1[i+2] array1[i+3]
+//checkear vertical : array1[i] array2[i] array3[i] array4[i]
+
+//el max más grande primero horizontal y  luego vertical
+
+//checkear =>>>>> max = array1[i] * array1[i+1] * array1[i+2] * array1[i+3]
+
+//
+
